@@ -130,7 +130,9 @@ systemctl enable lxdm
 * Cinnamon: ```pacman -S cinnamon```
 ```* - opcjonalny```
 
-# Instalacja sterownik√≥ wNVIDIA
+```pacman -S xorg```
+
+# Instalacja sterownik√w NVIDIA
 * Zamkniete (4xx or newer)
 ```pacman -S nvidia-dkms```
 
