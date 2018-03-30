@@ -20,9 +20,9 @@ sie spelni.
 ```
 *ESP size:200MB type: EFI System
 root size: ile chcemy type: Linux Filesystem
-
-*Tylko gdy mamy UEFI, powinna byc jako pierwsza
 ```
+*Tylko gdy mamy UEFI, powinna byc jako pierwsza
+
 * Formatowanie partycji
 ```
 mkfs.ext4 /dev/sdXY # Partycja root
@@ -55,7 +55,7 @@ Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jesli laczymy sie z
 ```ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime```
 
 # Zmiana nazwy hosta
-```echo <hostname> >> /etc/hostname
+```echo <hostname> >> /etc/hostname```
 
 # Generowanie ramdysku
 ```mkinitcpio -p linux```
@@ -96,7 +96,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
 # Instalacja menadzera pulpitu
-* LightDM (JEDYNY SLUSZNY): ```
+* LightDM (JEDYNY SLUSZNY):
+```
 pacman -S lightdm-gtk-greeter
 systemctl enable lightdm
 ```
