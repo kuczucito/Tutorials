@@ -43,3 +43,111 @@ Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jesli laczymy sie z
 # Generowanie fstab
 ```genfstab -U /mnt >> /mnt/etc/fstab```
 
+# chroot
+```arch-chroot /mnt```
+
+# Generowanie locali
+```echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen```
+```locale-gen```
+```echo LANG=pl_PL.UTF-8" >> /etc/locale.conf```
+
+# Ustawianie czasu
+```ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime```
+
+# Zmiana nazwy hosta
+```echo <hostname> >> /etc/hostname
+
+# Generowanie ramdysku
+```mkinitcpio -p linux```
+
+# Zmiana hasla dla uzytkownika root
+```passwd root```
+
+# Instalacja GRUBa
+* BIOS: 
+```
+pacman -S grub
+grub-install /dev/sdX
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+* UEFI:
+```
+pacman -S grub efibootmgr
+grub-install --target=x86_64-efi --efi-directory=/boot
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+* System mamy juz zainstalowany, przydaloby sie go jeszcze wstepnie skonfigurowac
+
+# Tworzenie nowego uzytkownika
+```useradd -m -G wheel -s /bin/bash <nazwa_uzytkownika>
+passwd <nazwa_uzytkownika>
+```
+
+# Konfiguracja sudo
+```EDITOR=nano visudo```
+Usuwamy # przy ```%wheel ALL=(ALL:ALL) ALL```
+
+# Instalacja mikrokodu (Intel only)
+```
+pacman -S intel-ucode
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+# Instalacja menadzera pulpitu
+* LightDM (JEDYNY SLUSZNY): ```
+pacman -S lightdm-gtk-greeter
+systemctl enable lightdm
+```
+* gdm (malo rigczu):
+```
+pacman -S gdm
+systemctl enable gdm
+```
+
+* LXDM (troche rigczu):
+```
+pacman -S lxdm
+systemctl enable lxdm
+```
+
+# Instalacja srodowiska graficznego
+* Gnome: ```pacman -S gnome *gnome-extra```
+
+* Xfce: ```pacman -S xfce4 *xfce4-goodies```
+
+* KDE Plasma: ```pacman -S plasma```
+
+* LXDE: ```pacman -S lxde```
+
+* LXqt: ```pacman -S lxqt breeze-icons```
+
+* MATE: ```pacman -S mate *mate-extra```
+
+* Cinnamon: ```pacman -S cinnamon```
+```* - opcjonalny```
+
+# Instalacja sterownikó wNVIDIA
+* Zamkniete (4xx or newer)
+```pacman -S nvidia-dkms```
+
+* Zamkniete (8xxx, 9xxx 1xx-3xx)
+```pacman -S nvidia-340xx-dkms```
+* Starszych nie opisze, bo trzeba robic downgrade X.Orga a to ma byc poradnik dla debili, instalujcie otwarte
+
+* Otwarte (chujowa wydajnosc)
+```pacman -S xf86-video-nouveau```
+
+# Instalacja sterownikow AMD/ATI
+* Otwarte (7xxx+, R5, R7, R9, RX)
+```pacman -S xf86-video-amdgpu```
+
+* Otwarte (6xxx i starsze)
+```pacman -S xf86-video-ati```
+
+* Instalacji zamknietych nie opisze, bo trzeba downgradowac X.Orga a to ma byc poradnik dla debili, instalujcie otwarte
+
+# Instacja sterownikow Intel
+```pacman -S xf86-video-intel```
+
