@@ -132,7 +132,12 @@ systemctl enable lxdm
 
 ```pacman -S xorg```
 
-# Instalacja sterownik√w NVIDIA
+# Instalacja Network Managera
+```
+pacman -S networkmanager
+systemctl enable NetworkManager
+```
+# Instalacja sterownik√≥w NVIDIA
 * Zamkniete (4xx or newer)
 ```pacman -S nvidia-dkms```
 
