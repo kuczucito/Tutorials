@@ -81,7 +81,8 @@ grub-mkconfig -o /boot/grub/grub.cfg
 * System mamy juz zainstalowany, przydaloby sie go jeszcze wstepnie skonfigurowac
 
 # Tworzenie nowego uzytkownika
-```useradd -m -G wheel -s /bin/bash <nazwa_uzytkownika>
+```
+useradd -m -G wheel -s /bin/bash <nazwa_uzytkownika>
 passwd <nazwa_uzytkownika>
 ```
 
