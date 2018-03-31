@@ -189,3 +189,19 @@ rm -r cower-git
 rm -r pacaur
 ```
 
+# Instalacja zsh i aktywacja theme Agnoster
+* Instalujemy zsh ```pacman -S zsh```
+* Pobieramy oh-my-zsh
+```
+cd ~
+git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
+cp .oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+nano .zshrc
+W 10 linijce zmieniamy robbyrussel na agnoster
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+cd ..
+rm -r fonts
+chsh -s /bin/zsh
+```
