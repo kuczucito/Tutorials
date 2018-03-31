@@ -138,28 +138,40 @@ systemctl enable lxdm
 pacman -S networkmanager
 systemctl enable NetworkManager
 ```
+# Konfiguracja pacmana
+* multilib
+```nano /etc/pacman.conf```
+Usuwamy # przy
+```
+#Color
+```
+```
+#[multilib]
+#Include /etc/pacman.d/mirrorlist
+```
+```pacman -Sy```
 # Instalacja sterowników NVIDIA
 * Zamkniete (4xx or newer)
-```pacman -S nvidia-dkms```
+```pacman -S nvidia-dkms lib32-nvidia-libgl```
 
 * Zamkniete (8xxx, 9xxx 1xx-3xx)
-```pacman -S nvidia-340xx-dkms```
+```pacman -S nvidia-340xx-dkms lib32-nvidia-340xx-libgl```
 * Starszych nie opisze, bo trzeba robic downgrade X.Orga a to ma byc poradnik dla debili, instalujcie otwarte
 
 * Otwarte (chujowa wydajnosc)
-```pacman -S xf86-video-nouveau```
+```pacman -S xf86-video-nouveau lib32-mesa-libgl```
 
 # Instalacja sterownikow AMD/ATI
 * Otwarte (7xxx+, R5, R7, R9, RX)
-```pacman -S xf86-video-amdgpu```
+```pacman -S xf86-video-amdgpu lib32-mesa-libgl```
 
 * Otwarte (6xxx i starsze)
-```pacman -S xf86-video-ati```
+```pacman -S xf86-video-ati lib32-mesa-libgl```
 
 * Instalacji zamknietych nie opisze, bo trzeba downgradowac X.Orga a to ma byc poradnik dla debili, instalujcie otwarte
 
 # Instacja sterownikow Intel
-```pacman -S xf86-video-intel```
+```pacman -S xf86-video-intel lib32-mesa-libgl```
 
 # Instalacja pacaura
 ```
@@ -175,13 +187,3 @@ rm -r cower-git
 rm -r pacaur
 ```
 
-# Dodanie repo multilib i wlaczenie kolorkow w pacmanie
-```nano /etc/pacman.conf```
-Usuwamy # przy:
-```
-#color
-```
-```
-#[multilib]
-#Include = /etc/pacman.d/mirrorlist
-```
