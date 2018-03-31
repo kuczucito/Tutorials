@@ -139,7 +139,9 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 # Konfiguracja pacmana
-```nano /etc/pacman.conf```
+```
+nano /etc/pacman.conf
+```
 Usuwamy # przy
 ```
 #Color
@@ -148,6 +150,7 @@ Usuwamy # przy
 #[multilib]
 #Include /etc/pacman.d/mirrorlist
 ```
+Nastepnie wykonujemy: 
 ```pacman -Sy```
 # Instalacja sterowników NVIDIA
 * Zamkniete (4xx or newer)
