@@ -115,22 +115,21 @@ systemctl enable lxdm
 ```
 
 # Instalacja srodowiska graficznego
-* Gnome: ```pacman -S gnome *gnome-extra```
+* Gnome: ```pacman -S xorg-server xorg-utils xorg-xinit gnome *gnome-extra```
 
-* Xfce: ```pacman -S xfce4 *xfce4-goodies```
+* Xfce: ```pacman -S xorg-server xorg-utils xorg-xinit xfce4 *xfce4-goodies```
 
-* KDE Plasma: ```pacman -S plasma```
+* KDE Plasma: ```pacman -S xorg-server xorg-utils xorg-xinit plasma```
 
-* LXDE: ```pacman -S lxde```
+* LXDE: ```pacman -S xorg-server xorg-utils xorg-xinit lxde```
 
-* LXqt: ```pacman -S lxqt breeze-icons```
+* LXqt: ```pacman -S xorg-server xorg-utils xorg-xinit lxqt breeze-icons```
 
-* MATE: ```pacman -S mate *mate-extra```
+* MATE: ```pacman -S xorg-server xorg-utils xorg-xinit mate *mate-extra```
 
-* Cinnamon: ```pacman -S cinnamon```
-```* - opcjonalny```
+* Cinnamon: ```pacman -S xorg-server xorg-utils xorg-xinit cinnamon```
+* - opcjonalny
 
-```pacman -S xorg```
 
 # Instalacja Network Managera
 ```
