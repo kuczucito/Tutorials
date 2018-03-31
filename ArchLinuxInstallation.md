@@ -178,9 +178,9 @@ rm -r pacaur
 ```nano /etc/pacman.conf```
 Usuwamy # przy:
 ```
-color
+#color
 ```
 ```
-[multilib]
-Include = /etc/pacman.d/mirrorlist
+#[multilib]
+#Include = /etc/pacman.d/mirrorlist
 ```
