@@ -139,7 +139,6 @@ pacman -S networkmanager
 systemctl enable NetworkManager
 ```
 # Konfiguracja pacmana
-* multilib
 ```nano /etc/pacman.conf```
 Usuwamy # przy
 ```
