@@ -177,7 +177,9 @@ rm -r pacaur
 # Dodanie repo multilib i wlaczenie kolorkow w pacmanie
 ```nano /etc/pacman.conf```
 Usuwamy # przy:
-```color```
+```
+color
+```
 ```
 [multilib]
 Include = /etc/pacman.d/mirrorlist
