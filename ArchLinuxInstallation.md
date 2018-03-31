@@ -175,6 +175,8 @@ Nastepnie wykonujemy:
 # Instacja sterownikow Intel
 ```pacman -S xf86-video-intel lib32-mesa-libgl```
 
+# Mysle ze to idealna pora na reboota :)
+
 # Instalacja pacaura
 ```
 git clone https://aur.archlinux.org/cower-git.git
