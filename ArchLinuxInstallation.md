@@ -128,7 +128,9 @@ systemctl enable lxdm
 * MATE: ```pacman -S xorg-server xorg-utils xorg-xinit mate *mate-extra```
 
 * Cinnamon: ```pacman -S xorg-server xorg-utils xorg-xinit cinnamon```
-```* - opcjonalny```
+```
+* - opcjonalny
+```
 
 
 # Instalacja Network Managera
