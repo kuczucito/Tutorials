@@ -160,3 +160,16 @@ systemctl enable NetworkManager
 # Instacja sterownikow Intel
 ```pacman -S xf86-video-intel```
 
+# Instalacja pacaura
+```
+git clone https://aur.archlinux.org/cower-git.git
+cd cower-git
+makepkg -si
+cd ..
+git clone https://aur.archlinux.org/pacaur.git
+cd pacaur
+makepkg -si
+cd ..
+rm -r cower-git
+rm -r pacaur
+```
