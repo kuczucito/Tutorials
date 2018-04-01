@@ -1,7 +1,7 @@
 # Poradnik instalacji najlepszej dystrybucji a r c h  l i n u x
-Marzyles kiedys o posiadaniu Archa na swoim komputerze i wzbudzaniu 
-zazdrosci wsrod ludzi walacych do ubuntu? Z tym poradnikiem te marzenie 
-sie spelni.
+Marzyłeś kiedyś o posiadaniu Archa na swoim komputerze i wzbudzaniu 
+zazdrości wśród ludzi walących do ubuntu? Z tym poradnikiem te marzenie 
+się spełni.
 
 # Pobieranie A r c h  L i n u x
 * Torrent: https://www.archlinux.org/releng/releases/2018.03.01/torrent/
@@ -11,7 +11,7 @@ sie spelni.
 * Windows: https://rufus.akeo.ie/downloads/rufus-2.18.exe
 * *NIX: ```# dd bs=4M if=/path/to/archlinux.iso of=/dev/sdX status=progress oflag=sync```
 
-# Lacznosc z Wi-Fi
+# Łączność z Wi-Fi
 ```wifi-menu```
 
 # Partycjonowanie dysków
@@ -35,10 +35,11 @@ mkdosfs -F 32 /dev/sdXY # Partycja ESP
 ```mkdir /mnt/boot
 mount /dev/sdXY /mnt/boot
 ```
+(WAŻNE!!!) Jeżeli przy montowaniu partycji ESP wystąpi błąd, utwórz katalog boot komendą ```mkdir /mnt/boot```
 
 # Pobieranie systemu
 ```pacstrap /mnt base base-devel```
-Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jesli laczymy sie z WiFi
+Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jeśli łączymy się z WiFi
 
 # Generowanie fstab
 ```genfstab -U /mnt >> /mnt/etc/fstab```
@@ -49,7 +50,7 @@ Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jesli laczymy sie z
 # Generowanie locali
 ```echo "pl_PL.UTF-8 UTF-8" >> /etc/locale.gen```
 ```locale-gen```
-```echo LANG=pl_PL.UTF-8" >> /etc/locale.conf```
+```echo "LANG=pl_PL.UTF-8" >> /etc/locale.conf```
 
 # Ustawianie czasu
 ```ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime```
@@ -60,7 +61,7 @@ Opcjonalnie możemy dodac ```wpa_supplicant netctl dialog``` jesli laczymy sie z
 # Generowanie ramdysku
 ```mkinitcpio -p linux```
 
-# Zmiana hasla dla uzytkownika root
+# Zmiana hasła dla uzytkownika root
 ```passwd root```
 
 # Instalacja GRUBa
@@ -78,7 +79,7 @@ grub-install --target=x86_64-efi --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-* System mamy juz zainstalowany, przydaloby sie go jeszcze wstepnie skonfigurowac
+* System mamy już zainstalowany, przydałoby się go jeszcze wstępnie skonfigurować
 
 # Tworzenie nowego uzytkownika
 ```
@@ -115,19 +116,19 @@ systemctl enable lxdm
 ```
 
 # Instalacja srodowiska graficznego
-* Gnome: ```pacman -S xorg-server xorg-utils xorg-xinit gnome *gnome-extra```
+* Gnome: ```pacman -S xorg-server xorg-xinit gnome *gnome-extra``` (przy gnome występuje problem z otwarciem terminala)
 
-* Xfce: ```pacman -S xorg-server xorg-utils xorg-xinit xfce4 *xfce4-goodies```
+* Xfce: ```pacman -S xorg-server xorg-xinit xfce4 *xfce4-goodies```
 
-* KDE Plasma: ```pacman -S xorg-server xorg-utils xorg-xinit plasma```
+* KDE Plasma: ```pacman -S xorg-server xorg-xinit plasma```
 
-* LXDE: ```pacman -S xorg-server xorg-utils xorg-xinit lxde```
+* LXDE: ```pacman -S xorg-server xorg-xinit lxde```
 
-* LXqt: ```pacman -S xorg-server xorg-utils xorg-xinit lxqt breeze-icons```
+* LXqt: ```pacman -S xorg-server xorg-xinit lxqt breeze-icons```
 
-* MATE: ```pacman -S xorg-server xorg-utils xorg-xinit mate *mate-extra```
+* MATE: ```pacman -S xorg-server xorg-xinit mate *mate-extra```
 
-* Cinnamon: ```pacman -S xorg-server xorg-utils xorg-xinit cinnamon```
+* Cinnamon: ```pacman -S xorg-server xorg-xinit cinnamon```
 ```
 * - opcjonalny
 ```
@@ -138,6 +139,8 @@ systemctl enable lxdm
 pacman -S networkmanager
 systemctl enable NetworkManager
 ```
+Jeśli z jakiegoś powodu musimy się łączyć z Wi-Fi z poziomu tekstowego lub terminala wykonujemy komendę ```nmcli dev wifi connect <nazwa sieci> password <hasło>```. Niestety Network Manager nie lubi się z nazwami sieci, które zawierają w sobie spację.
+
 # Konfiguracja pacmana
 ```
 nano /etc/pacman.conf
@@ -190,6 +193,7 @@ cd ..
 rm -r cower-git
 rm -r pacaur
 ```
+Jeżeli przy ```makepkg -si ``` wyskoczy błąd, z powodu braku uprawnień do zapisu, przeloguj się na użytkownika root, przejdź do /home/<nazwa usera> , kliknij PPM na dany folder, Właściwości i zmień uprawnienia do folderu dla "others"
 
 # Instalacja zsh i aktywacja theme Agnoster
 * Instalujemy zsh ```pacman -S zsh```
@@ -199,7 +203,9 @@ cd ~
 git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 cp .oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
 nano .zshrc
+```
 W 10 linijce zmieniamy robbyrussel na agnoster
+```
 git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
